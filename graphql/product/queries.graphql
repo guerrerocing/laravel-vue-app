@@ -1,0 +1,6 @@
+extend type Query {
+    "Get All products that belongs to shop ID"
+    productByShopId(shop_id: ID! @globalId(decode: ID) @eq): [Product!]!@paginate(type: CONNECTION)
+    "Get product by ID"
+    productById(id: ID! @globalId(decode: ID) @eq): Product! @find
+}

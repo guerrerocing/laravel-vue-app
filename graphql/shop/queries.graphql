@@ -1,0 +1,9 @@
+extend type Query {
+    "Get All shops with Stock"
+    shopsWithStock: [Shop!]!
+    @paginate(type: CONNECTION, builder: "App\\GraphQL\\Shop\\Builders\\ShopBuilder@withStock")
+    "Get All shops the does not have Stock"
+    shopsWithOutStock: [Shop!]!
+    @paginate(type: CONNECTION, builder: "App\\GraphQL\\Shop\\Builders\\ShopBuilder@withOutStock")
+    shopById(id: ID! @globalId(decode: ID) @eq): Shop! @find
+}

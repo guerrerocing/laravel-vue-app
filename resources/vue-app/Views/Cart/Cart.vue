@@ -1,0 +1,1 @@
+<template>cart view</template>

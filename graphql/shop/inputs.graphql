@@ -1,0 +1,14 @@
+input ShopInput {
+    id: ID @globalId(decode: ID)
+    name: String
+    description: String
+    address: String
+    openingAt: String @rename(attribute: "opening_at")
+    closingAt: String @rename(attribute: "closing_at")
+}
+
+"Specifies the Shop to delete."
+input ShopDeleteInput {
+    "The ID of the Shop to be deleted."
+    id: ID! @globalId(decode: ID)
+}

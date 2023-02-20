@@ -1,0 +1,33 @@
+type Shop @model(class: "App\\Models\\Shop") {
+    id: ID! @globalId
+    name: String!
+    description: String!
+    address: String!
+    openingAt: String! @rename(attribute: "opening_at")
+    closingAt: String! @rename(attribute: "closing_at")
+    products: [Product!]! @hasMany(type: CONNECTION)
+}
+
+"Return type for `deleteShop` mutation."
+type ShopDeletePayload {
+    "The ID of the deleted Shop."
+    deletedShopId: ID @globalId
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}
+
+"Return Type for `createShop` mutation."
+type ShopCreatePayload {
+    "The created Shop."
+    shopEdge: ShopEdge
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}
+
+"Return type for `updateShop` mutation."
+type ShopUpdatePayload {
+    "The updated Shop."
+    shop: Shop
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}

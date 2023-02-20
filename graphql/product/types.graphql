@@ -1,0 +1,32 @@
+type Product @model(class: "App\\Models\\Product") {
+    id: ID! @globalId
+    name: String!
+    description: String!
+    price: Float!
+    discount: Int!
+    shop: Shop! @belongsTo
+}
+
+"Return type for `deleteProduct` mutation."
+type ProductDeletePayload {
+    "The ID of the deleted Product."
+    deletedProductId: ID @globalId
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}
+
+"Return Type for `createProduct` mutation."
+type ProductCreatePayload {
+    "The created Product."
+    productEdge: ProductEdge
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}
+
+"Return type for `updateProduct` mutation."
+type ProductUpdatePayload {
+    "The updated Product."
+    product: Product
+    "The list of errors that occurred from executing the mutation."
+    userErrors: [UserError!]!
+}

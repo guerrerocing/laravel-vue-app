@@ -1,0 +1,8 @@
+type Mutation
+type Query
+
+#import ./base/*.graphql
+#import ./product/*.graphql
+#import ./order/*.graphql
+#import ./shop/*.graphql
+

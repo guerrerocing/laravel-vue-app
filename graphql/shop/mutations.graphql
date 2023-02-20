@@ -1,0 +1,11 @@
+extend type Mutation @namespace(field: "App\\GraphQL\\Shop\\Mutations") {
+    "Create new Shop"
+    createShop(input: ShopInput!): ShopCreatePayload
+    @field(resolver: "CreateShopMutation")
+    "Update Shop Info"
+    updateShop(input: ShopInput!): ShopUpdatePayload
+    @field(resolver: "UpdateShopMutation")
+    "Delete Shop Mutation."
+    deleteShop(input: ShopDeleteInput!): ShopDeletePayload
+    @field(resolver: "DeleteShopMutation")
+}

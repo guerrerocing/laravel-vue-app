@@ -1,0 +1,14 @@
+input ProductInput {
+    id: ID @globalId(decode: ID)
+    name: String
+    description: String
+    price: Float
+    discount: Int
+    shopId: ID @globalId(decode: ID) @rename(attribute: "shop_id")
+}
+
+"Specifies the Product to delete."
+input ProductDeleteInput {
+    "The ID of the Product to be deleted."
+    id: ID! @globalId(decode: ID)
+}
